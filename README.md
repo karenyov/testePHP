@@ -33,7 +33,7 @@ Entrar no container do projeto:
 docker exec -it app bash
 ```
 
-No container, instalar o composer:
+No container, instalar as dependências via composer:
 ```sh
 composer install
 ```
