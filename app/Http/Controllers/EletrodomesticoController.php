@@ -62,7 +62,7 @@ class EletrodomesticoController extends BaseController
         $eletrodomestico = Eletrodomestico::find($id);
   
         if (is_null($eletrodomestico)) {
-            return $this->sendError('Eletrodoméstico não encontrada.');
+            return $this->sendError('Eletrodoméstico não encontrado.');
         }
    
         return $this->sendResponse(new EletrodomesticoResource($eletrodomestico), 'Eletrodoméstico encontrada com sucesso.');
@@ -113,7 +113,7 @@ class EletrodomesticoController extends BaseController
         $eletrodomestico = Eletrodomestico::find($id);
 
         if ($eletrodomestico->delete())
-            return $this->sendResponse([], 'Eletrodoméstico deletada com sucesso.');
+            return $this->sendResponse([], 'Eletrodoméstico deletado com sucesso.');
 
         return $this->sendError('Erro. Problema ao deletar os dados.');
     }

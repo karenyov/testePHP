@@ -28,20 +28,9 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
-Entrar no container do projeto:
+Para entrar no container do projeto e executar comandos:
 ```sh
 docker exec -it app bash
-```
-
-No container, instalar as dependências via composer:
-```sh
-composer install
-```
-
-Executar os comandos iniciais para criar o database
-```sh
-php artisan migrate
-php artisan db:seed
 ```
 
 ## Estrutura do Projeto
