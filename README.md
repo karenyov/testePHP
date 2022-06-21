@@ -3,7 +3,7 @@ Teste Desenvolvedor Fullstack (PHP)
 
 
 ## Requisitos
-
+- [Docker](https://docs.docker.com/engine/install/).
 
 
 ## Instalação
@@ -93,5 +93,8 @@ php artisan db:seed
 ├── server.php
 └── webpack.mix.js
 ```
-
-
+## Testes
+Os testes foram escritos na pasta "./tests" do projeto. Para executá-los, basta estar dentro do container:
+```sh
+php artisan test
+```
