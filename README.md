@@ -38,6 +38,17 @@ php artisan db:seed
 ```sh
 .
 ├── app
+│   ├── Console
+│   ├── Exceptions
+│   ├── Http
+│   |   ├── Controllers
+│   |   ├── Middleware
+│   |   ├── Requests
+│   |   ├── Resources
+│   |   └── Kernel.php
+│   ├── Models
+│   ├── Providers
+│   └── User.php
 ├── bootstrap
 ├── config
 ├── database
