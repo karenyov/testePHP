@@ -18,6 +18,16 @@ Na raiz do projeto abra o terminal e execute o comando:
 docker-compose up -d
 ```
 
+Alterar o arquivo .env.example (remover o .example) e deixar as configurações do banco conforme o container:
+```
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=eletro_db
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
 Entrar no container do projeto:
 ```sh
 docker exec -it app bash
