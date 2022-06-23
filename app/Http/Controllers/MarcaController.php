@@ -6,10 +6,17 @@ use App\Models\Marca as Marca;
 use App\Http\Resources\Marca as MarcaResource;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\MarcaRequest;
-
+use App\Repositories\MarcaRepositoryInterface as MarcaRepositoryInterface;
 
 class MarcaController extends BaseController
 {
+    private $marcaRepository;
+  
+    public function __construct(MarcaRepositoryInterface $marcaRepository)
+    {
+        $this->marcaRepository = $marcaRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +24,8 @@ class MarcaController extends BaseController
      */
     public function index()
     {
-        $marcas = Marca::all();
+        $marcas = $this->marcaRepository->all();
+
         return $this->sendResponse(MarcaResource::collection($marcas), 'Marcas carregadas com sucesso.');
     }
 
@@ -39,7 +47,7 @@ class MarcaController extends BaseController
      */
     public function store(MarcaRequest $request)
     {
-        $marca = Marca::create([
+        $marca = $this->marcaRepository->create([
             'nome' => $request->nome,
         ]);
 
@@ -57,7 +65,7 @@ class MarcaController extends BaseController
      */
     public function show($id)
     {
-        $marca = Marca::find($id);
+        $marca = $this->marcaRepository->find($id);
   
         if (is_null($marca)) {
             return $this->sendError('Marca não encontrada.');
@@ -88,7 +96,7 @@ class MarcaController extends BaseController
     {
         $input = $request->all();
 
-        $marca = Marca::find($id);   
+        $marca = $this->marcaRepository->find($id);   
         $marca->nome = $input['nome'];
         $marca->save();
    
@@ -106,7 +114,7 @@ class MarcaController extends BaseController
      */
     public function destroy($id)
     {
-        $marca = Marca::find($id);
+        $marca = $this->marcaRepository->find($id);
 
         if ($marca->delete())
             return $this->sendResponse([], 'Marca deletada com sucesso.');

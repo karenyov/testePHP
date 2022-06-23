@@ -6,9 +6,16 @@ use App\Models\Eletrodomestico as Eletrodomestico;
 use App\Http\Resources\Eletrodomestico as EletrodomesticoResource;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\EletrodomesticoRequest;
-
+use App\Repositories\EletrodomesticoRepositoryInterface as EletrodomesticoRepositoryInterface;
 class EletrodomesticoController extends BaseController
 {
+    private $eletrodomesticoRepository;
+  
+    public function __construct(EletrodomesticoRepositoryInterface $eletrodomesticoRepository)
+    {
+        $this->eletrodomesticoRepository = $eletrodomesticoRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +23,9 @@ class EletrodomesticoController extends BaseController
      */
     public function index()
     {
-        $eletrodomestico = Eletrodomestico::all();
-        return $this->sendResponse(EletrodomesticoResource::collection($eletrodomestico), 'Eletrodoméstico carregadas com sucesso.');
+        $eletrodomesticos = $this->eletrodomesticoRepository->all();
+
+        return $this->sendResponse(EletrodomesticoResource::collection($eletrodomesticos), 'Eletrodoméstico carregadas com sucesso.');
     }
 
     /**
@@ -38,7 +46,7 @@ class EletrodomesticoController extends BaseController
      */
     public function store(EletrodomesticoRequest $request)
     {
-        $eletrodomestico = Eletrodomestico::create([
+        $eletrodomestico = $this->eletrodomesticoRepository->create([
             'nome' => $request->nome,
             'descricao' => $request->descricao,
             'tensao' => $request->tensao,
@@ -59,7 +67,7 @@ class EletrodomesticoController extends BaseController
      */
     public function show($id)
     {
-        $eletrodomestico = Eletrodomestico::find($id);
+        $eletrodomestico = $this->eletrodomesticoRepository->find($id);
   
         if (is_null($eletrodomestico)) {
             return $this->sendError('Eletrodoméstico não encontrado.');
@@ -90,7 +98,7 @@ class EletrodomesticoController extends BaseController
     {
         $input = $request->all();
 
-        $eletrodomestico = Eletrodomestico::find($id);   
+        $eletrodomestico = $this->eletrodomesticoRepository->find($id);   
         $eletrodomestico->nome = $input['nome'];
         $eletrodomestico->descricao = $input['descricao'];
         $eletrodomestico->tensao = $input['tensao'];
@@ -110,7 +118,7 @@ class EletrodomesticoController extends BaseController
      */
     public function destroy($id)
     {
-        $eletrodomestico = Eletrodomestico::find($id);
+        $eletrodomestico = $this->eletrodomesticoRepository->find($id);
 
         if ($eletrodomestico->delete())
             return $this->sendResponse([], 'Eletrodoméstico deletado com sucesso.');

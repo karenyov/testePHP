@@ -54,6 +54,7 @@ php artisan db:seed
 │   |   └── Kernel.php
 │   ├── Models
 │   ├── Providers
+│   ├── Repositories
 │   └── User.php
 ├── bootstrap
 ├── config
