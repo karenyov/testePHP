@@ -41,8 +41,14 @@ COPY . /var/www
 COPY --chown=www:www . /var/www
 RUN chown -R www-data:www-data /var/www
 
+COPY ./docker-entrypoint.sh /
+
+RUN chmod +x docker-entrypoint.sh
+
 # change current user to www
 USER www
 
 EXPOSE 9000
+
+# ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["php-fpm"]

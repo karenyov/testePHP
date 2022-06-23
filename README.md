@@ -28,9 +28,16 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
-Para entrar no container do projeto e executar comandos:
+Entrar no container e executar o seguintes comandos:
 ```sh
-docker exec -it app bash
+docker exec -it app bash #entrando no container
+
+composer install #instalar as dependências via composer
+
+#preparando a estrutura do laravel e do database
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
 ```
 
 ## Estrutura do Projeto
@@ -86,4 +93,16 @@ docker exec -it app bash
 Os testes foram escritos na pasta "./tests" do projeto. Para executá-los, basta estar dentro do container:
 ```sh
 php artisan test
+```
+
+## Comandos úteis
+```sh
+# lista os containers dessa aplicação
+docker-compose ps
+# acessa o terminal do container php
+docker container exec -it app bash
+# para os containers
+docker-compose stop
+# para e remove os containers
+docker-compose down
 ```

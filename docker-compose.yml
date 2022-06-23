@@ -8,7 +8,6 @@ services:
       dockerfile: Dockerfile
 
     container_name: app
-    entrypoint: ./docker-files/entrypoint.sh
     restart: unless-stopped
     tty: true
     working_dir: /var/www
