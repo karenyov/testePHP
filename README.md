@@ -89,6 +89,10 @@ php artisan db:seed
 ├── server.php
 └── webpack.mix.js
 ```
+
+## Estrutura Database
+![alt text](database.png)
+
 ## Testes
 Os testes foram escritos na pasta "./tests" do projeto. Para executá-los, basta estar dentro do container:
 ```sh
