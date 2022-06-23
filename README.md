@@ -91,7 +91,7 @@ php artisan db:seed
 ```
 
 ## Estrutura Database
-![alt text](database.png)
+![alt text](https://github.com/karenyov/testePHP_API/blob/main/database.jpg)
 
 ## Testes
 Os testes foram escritos na pasta "./tests" do projeto. Para executá-los, basta estar dentro do container:
