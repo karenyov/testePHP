@@ -94,6 +94,231 @@ php artisan db:seed
 ## Estrutura Database
 ![alt text](https://github.com/karenyov/testePHP_API/blob/main/database.jpg)
 
+## Endpoints
+
+### Edpoint - `api/marcas`
+
+#### [POST] - `api/marcas`
+| Parâmetro | Descrição |
+|---|---|
+| `nome` | Nome da Marca |
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "nome": "Brastemp",
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "data": {
+                    "id": 2,
+                    "nome": "Brastemp"
+                },
+                "message": "Marca encontrada com sucesso."
+            }
+
+
+#### [GET] - `api/marcas`
++ Request (application/json)
+
+    + Headers
+
+            `api/marcas`
+
++ Response 200 (application/json)
+
+    {
+        "success": true,
+        "data": [
+            {
+                "id": 2,
+                "nome": "dsadasdasdad"
+            },
+            {
+                "id": 4,
+                "nome": "Samsung"
+            },
+            {
+                "id": 5,
+                "nome": "LG"
+            },
+        ],
+        "message": "Marcas carregadas com sucesso."
+    }
+
+#### [PUT] - `api/marcas/{id}`
+| Parâmetro | Descrição |
+|---|---|
+| `nome` | Nome da Marca |
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "nome": "Brastemp",
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "data": {
+                    "id": 2,
+                    "nome": "Brastemp"
+                },
+                "message": "Marca alterada com sucesso."
+            }
+
+#### [DELETE] - `api/marcas/{id}`
++ Request (application/json)
+
+    + Headers
+
+            `api/marcas/{id}`
+
++ Response 200 (application/json)
+
+    {
+        "success": true,
+        "data": [],
+        "message": "Marca deletada com sucesso."
+    }
+
+
+### Edpoint - `api/eletrodomesticos`
+
+#### [POST] - `api/eletrodomesticos`
+
+| Parâmetro | Descrição |
+|---|---|
+| `nome` | Nome do Eletrodoméstico |
+| `descricao` | Descrição do Eletrodoméstico |
+| `tensao` | Tensão do Eletrodoméstico |
+| `marca_id` | Marca do Eletrodoméstico |
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "nome": "Geladeira",
+                "descricao": "Geladeira duas portas",
+                "tensao": "220",
+                "marca_id": "1"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "data": {
+                    "id": 1,
+                    "marca_id": 1,
+                    "nome": "Geladeira",
+                    "descricao": "Geladeira duas portas",
+                    "tensao": 220,
+                    "marca": "Brastemp"
+                },
+                "message": "Eletrodoméstico encontrada com sucesso."
+            }
+
+#### [GET] - `api/eletrodomesticos`
++ Request (application/json)
+
+    + Headers
+
+            `api/eletrodomesticos`
+
++ Response 200 (application/json)
+
+    {
+        "success": true,
+        "data": [
+            {
+                "id": 1,
+                "marca_id": 1,
+                "nome": "Geladeira",
+                "descricao": "Geladeira duas portas",
+                "tensao": 220,
+                "marca": "Brastemp"
+            },
+            {
+                "id": 2,
+                "marca_id": 2,
+                "nome": "Geladeira",
+                "descricao": "Geladeira uma porta",
+                "tensao": 220,
+                "marca": "LG"
+            }
+        ],
+        "message": "Eletrodoméstico carregadas com sucesso."
+    }
+
+
+#### [PUT] - `api/eletrodomesticos/{id}`
+| Parâmetro | Descrição |
+|---|---|
+| `nome` | Nome do Eletrodoméstico |
+| `descricao` | Descrição do Eletrodoméstico |
+| `tensao` | Tensão do Eletrodoméstico |
+| `marca_id` | Marca do Eletrodoméstico |
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "nome": "Geladeira",
+                "descricao": "Geladeira duas portas",
+                "tensao": "220",
+                "marca_id": "1"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "data": {
+                    "id": 1,
+                    "marca_id": 1,
+                    "nome": "Geladeira",
+                    "descricao": "Geladeira duas portas",
+                    "tensao": 220,
+                    "marca": "Brastemp"
+                },
+                "message": "Eletrodoméstico alterado com sucesso."
+            }
+
+
+#### [DELETE] - `api/eletrodomesticos/{id}`
++ Request (application/json)
+
+    + Headers
+
+            `api/eletrodomesticos/{id}`
+
++ Response 200 (application/json)
+
+    {
+        "success": true,
+        "data": [],
+        "message": "Eletrodoméstico deletado com sucesso."
+    }
+
 ## Testes
 Os testes foram escritos na pasta "./tests" do projeto. Para executá-los, basta estar dentro do container:
 ```sh
@@ -111,3 +336,6 @@ docker-compose stop
 # para e remove os containers
 docker-compose down
 ```
+
+## Acessando a API
+Por padrão a porta configurada no docker é a 8100 (http://localhost:8100/api).
