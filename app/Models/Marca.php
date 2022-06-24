@@ -20,6 +20,6 @@ class Marca extends Model
      */
     public function marca()
     {
-        return $this->belongsTo(Marca::class, 'marca_id', 'id');
+        return $this->hasMany(Eletrodomestico::class);
     }
 }
