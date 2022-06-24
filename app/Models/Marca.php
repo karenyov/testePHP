@@ -11,7 +11,7 @@ class Marca extends Model
     protected $with = ['marca'];
 
     protected $guarded = [];
-    protected $fillable = ['nome', 'descricao', 'tensao', 'marca_id'];
+    protected $fillable = ['nome'];
 
     /**
      * Get the Marca that owns the Eletrodomestico
