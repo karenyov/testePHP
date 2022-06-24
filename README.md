@@ -15,7 +15,7 @@ git clone https://github.com/karenyov/testePHP.git
 
 Na raiz do projeto abra o terminal e execute o comando:
 ```sh
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 Alterar o arquivo .env.example (remover o .example) e deixar as configurações do banco conforme o container:
