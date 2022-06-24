@@ -94,9 +94,9 @@ php artisan db:seed
 ## Estrutura Database
 ![alt text](https://github.com/karenyov/testePHP_API/blob/main/database.jpg)
 
-## Endpoints
+## ENDPOINTS
 
-### Edpoint - `api/marcas`
+### ENDPOINT - `api/marcas`
 
 #### [POST] - `api/marcas`
 | Parâmetro | Descrição |
@@ -134,24 +134,24 @@ php artisan db:seed
 
 + Response 200 (application/json)
 
-    {
-        "success": true,
-        "data": [
-            {
-                "id": 2,
-                "nome": "dsadasdasdad"
-            },
-            {
-                "id": 4,
-                "nome": "Samsung"
-            },
-            {
-                "id": 5,
-                "nome": "LG"
-            },
-        ],
-        "message": "Marcas carregadas com sucesso."
-    }
+        {
+            "success": true,
+            "data": [
+                {
+                    "id": 2,
+                    "nome": "dsadasdasdad"
+                },
+                {
+                    "id": 4,
+                    "nome": "Samsung"
+                },
+                {
+                    "id": 5,
+                    "nome": "LG"
+                },
+            ],
+            "message": "Marcas carregadas com sucesso."
+        }
 
 #### [PUT] - `api/marcas/{id}`
 | Parâmetro | Descrição |
@@ -188,14 +188,14 @@ php artisan db:seed
 
 + Response 200 (application/json)
 
-    {
-        "success": true,
-        "data": [],
-        "message": "Marca deletada com sucesso."
-    }
+        {
+            "success": true,
+            "data": [],
+            "message": "Marca deletada com sucesso."
+        }
 
 
-### Edpoint - `api/eletrodomesticos`
+### ENDPOINT - `api/eletrodomesticos`
 
 #### [POST] - `api/eletrodomesticos`
 
@@ -243,28 +243,28 @@ php artisan db:seed
 
 + Response 200 (application/json)
 
-    {
-        "success": true,
-        "data": [
-            {
-                "id": 1,
-                "marca_id": 1,
-                "nome": "Geladeira",
-                "descricao": "Geladeira duas portas",
-                "tensao": 220,
-                "marca": "Brastemp"
-            },
-            {
-                "id": 2,
-                "marca_id": 2,
-                "nome": "Geladeira",
-                "descricao": "Geladeira uma porta",
-                "tensao": 220,
-                "marca": "LG"
-            }
-        ],
-        "message": "Eletrodoméstico carregadas com sucesso."
-    }
+        {
+            "success": true,
+            "data": [
+                {
+                    "id": 1,
+                    "marca_id": 1,
+                    "nome": "Geladeira",
+                    "descricao": "Geladeira duas portas",
+                    "tensao": 220,
+                    "marca": "Brastemp"
+                },
+                {
+                    "id": 2,
+                    "marca_id": 2,
+                    "nome": "Geladeira",
+                    "descricao": "Geladeira uma porta",
+                    "tensao": 220,
+                    "marca": "LG"
+                }
+            ],
+            "message": "Eletrodoméstico carregadas com sucesso."
+        }
 
 
 #### [PUT] - `api/eletrodomesticos/{id}`
@@ -313,11 +313,11 @@ php artisan db:seed
 
 + Response 200 (application/json)
 
-    {
-        "success": true,
-        "data": [],
-        "message": "Eletrodoméstico deletado com sucesso."
-    }
+        {
+            "success": true,
+            "data": [],
+            "message": "Eletrodoméstico deletado com sucesso."
+        }
 
 ## Testes
 Os testes foram escritos na pasta "./tests" do projeto. Para executá-los, basta estar dentro do container:
